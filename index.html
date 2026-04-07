@@ -479,6 +479,11 @@ nav.scrolled {
 .faq-a { font-size: 15px; color: var(--muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding-top 0.3s; }
 .faq-item.open .faq-a { max-height: 400px; padding-top: 16px; }
 
+/* ── SECTION CANVASES ── */
+#problem, #steps, #cta-section, #faq { position: relative; overflow: hidden; }
+#problem .container, #steps .container, #cta-section .container, #faq .container { position: relative; z-index: 1; }
+.section-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.35; }
+
 /* ── FOOTER ── */
 footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; }
 .footer-logo { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 16px; display: block; }
@@ -583,6 +588,7 @@ footer p { font-size: 13px; color: #444; }
 
 <!-- PROBLEM -->
 <section id="problem">
+  <canvas class="section-canvas" id="canvas-problem"></canvas>
   <div class="container">
     <span class="section-label">Das kennen wir</span>
     <h2>Warum Social Media Betreuung in Wien<br>für viele Unternehmen nicht funktioniert.</h2>
@@ -644,6 +650,7 @@ footer p { font-size: 13px; color: #444; }
 
 <!-- STEPS -->
 <section id="steps">
+  <canvas class="section-canvas" id="canvas-steps"></canvas>
   <div class="container">
     <span class="section-label">Ablauf</span>
     <h2>So läuft die Zusammenarbeit ab.</h2>
@@ -826,6 +833,7 @@ footer p { font-size: 13px; color: #444; }
 
 <!-- CTA -->
 <section id="cta-section">
+  <canvas class="section-canvas" id="canvas-cta"></canvas>
   <div class="container">
     <div class="cta-box" id="kontakt">
       <span class="section-label">Kontakt</span>
@@ -842,6 +850,7 @@ footer p { font-size: 13px; color: #444; }
 
 <!-- FAQ -->
 <section id="faq" aria-label="Häufige Fragen zur Social Media Betreuung Wien">
+  <canvas class="section-canvas" id="canvas-faq"></canvas>
   <div class="container">
     <span class="section-label">FAQ</span>
     <h2>Häufige Fragen zur<br>Social Media Betreuung Wien.</h2>
@@ -916,20 +925,52 @@ document.addEventListener('mousemove', e => {
   g.style.top = e.clientY + 'px';
 }, { passive: true });
 
-/* HERO PARTICLES */
-(function() {
-  const canvas = document.getElementById('hero-canvas');
+/* PARTICLE CANVAS – shared, interactive */
+function makeParticleCanvas(canvas, count, dist) {
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, pts = [];
-  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+  let mx = -9999, my = -9999;
+  const section = canvas.parentElement;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
   resize();
   window.addEventListener('resize', resize, { passive: true });
-  for (let i = 0; i < 55; i++) {
-    pts.push({ x: Math.random() * 2000, y: Math.random() * 1000, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: Math.random() * 1.5 + 0.4 });
+
+  for (let i = 0; i < count; i++) {
+    pts.push({
+      x: Math.random() * (W || 1000),
+      y: Math.random() * (H || 600),
+      vx: (Math.random() - .5) * .35,
+      vy: (Math.random() - .5) * .35,
+      r: Math.random() * 1.5 + 0.4
+    });
   }
+
+  section.addEventListener('mousemove', e => {
+    const r = canvas.getBoundingClientRect();
+    mx = e.clientX - r.left;
+    my = e.clientY - r.top;
+  }, { passive: true });
+  section.addEventListener('mouseleave', () => { mx = -9999; my = -9999; });
+
   function frame() {
     ctx.clearRect(0, 0, W, H);
     pts.forEach(p => {
+      const dx = p.x - mx, dy = p.y - my;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < 100 && d > 0) {
+        const f = (100 - d) / 100 * 1.4;
+        p.vx += dx / d * f;
+        p.vy += dy / d * f;
+      }
+      p.vx *= 0.97; p.vy *= 0.97;
+      const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      if (spd > 3.5) { p.vx = p.vx / spd * 3.5; p.vy = p.vy / spd * 3.5; }
+      if (spd < 0.12) { p.vx += (Math.random() - .5) * 0.06; p.vy += (Math.random() - .5) * 0.06; }
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
@@ -940,16 +981,27 @@ document.addEventListener('mousemove', e => {
       for (let j = i + 1; j < pts.length; j++) {
         const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
         const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 150) {
+        if (d < dist) {
+          const midX = (pts[i].x + pts[j].x) / 2, midY = (pts[i].y + pts[j].y) / 2;
+          const mdx = midX - mx, mdy = midY - my;
+          const md = Math.sqrt(mdx * mdx + mdy * mdy);
+          let alpha = 0.09 * (1 - d / dist);
+          if (md < 130) alpha += 0.18 * (1 - md / 130);
           ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = `rgba(212,240,64,${0.09 * (1 - d / 150)})`; ctx.lineWidth = 0.6; ctx.stroke();
+          ctx.strokeStyle = `rgba(212,240,64,${Math.min(alpha, 0.45)})`; ctx.lineWidth = 0.6; ctx.stroke();
         }
       }
     }
     requestAnimationFrame(frame);
   }
   frame();
-})();
+}
+
+makeParticleCanvas(document.getElementById('hero-canvas'),   55, 150);
+makeParticleCanvas(document.getElementById('canvas-problem'), 30, 130);
+makeParticleCanvas(document.getElementById('canvas-steps'),   25, 120);
+makeParticleCanvas(document.getElementById('canvas-cta'),     28, 130);
+makeParticleCanvas(document.getElementById('canvas-faq'),     25, 120);
 
 /* COUNTER ANIMATION */
 function runCounter(el, target, dur) {
