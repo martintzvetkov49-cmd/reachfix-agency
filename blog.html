@@ -3,241 +3,377 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog – Social Media Marketing Tipps | ReachFix Wien</title>
-<meta name="description" content="Der ReachFix Blog: Tipps und Einblicke zu Social Media Marketing, Instagram Betreuung, Meta Ads und digitalem Marketing für Unternehmen in Wien und Österreich.">
+
+<title>Blog – Social Media Tipps & Wissen | ReachFix Wien</title>
+<meta name="description" content="Der ReachFix Blog: Praxistipps zu Instagram Marketing, Meta Ads und Social Media Betreuung für Unternehmen in Wien und Österreich.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.reachfix.agency/blog.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.reachfix.agency/blog.html">
+<meta property="og:title" content="Blog – Social Media Tipps & Wissen | ReachFix Wien">
+<meta property="og:description" content="Praxistipps zu Instagram Marketing, Meta Ads und Social Media Betreuung für Unternehmen in Wien.">
+<meta property="og:locale" content="de_AT">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "ReachFix Blog",
+  "description": "Praxistipps zu Instagram Marketing, Meta Ads und Social Media Betreuung für Unternehmen in Wien und Österreich.",
+  "url": "https://www.reachfix.agency/blog.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ReachFix",
+    "url": "https://www.reachfix.agency"
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --black: #0a0a0a; --dark: #1a1a1a; --muted: #888; --white: #f5f5f0;
-  --accent: #d4f040; --accent-muted: rgba(212,240,64,0.12);
-  --border: rgba(255,255,255,0.08); --card-bg: #161616; --radius: 16px;
+  --black: #0a0a0a;
+  --dark: #1a1a1a;
+  --muted: #888;
+  --white: #f5f5f0;
+  --accent: #d4f040;
+  --accent-dark: #b8d430;
+  --accent-muted: rgba(212,240,64,0.12);
+  --border: rgba(255,255,255,0.08);
+  --card-bg: #161616;
+  --radius: 16px;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-h1,h2,h3,h4 { font-family: 'Sora', sans-serif; font-weight: 700; color: var(--white); }
+body {
+  background: var(--black); color: var(--white);
+  font-family: 'DM Sans', sans-serif; font-size: 17px;
+  line-height: 1.65; -webkit-font-smoothing: antialiased;
+}
 a { color: inherit; text-decoration: none; }
+h1,h2,h3 { font-family: 'Sora', sans-serif; line-height: 1.15; color: var(--white); }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,10,10,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 24px;
+  height: 68px; display: flex; align-items: center; justify-content: space-between;
+}
 .logo { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; }
 .logo span { color: var(--accent); }
-.nav-back { font-size: 14px; color: var(--muted); transition: color 0.2s; }
-.nav-back:hover { color: var(--white); }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 15px; color: var(--muted); transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--white); }
+.nav-cta {
+  background: var(--accent); color: var(--black) !important;
+  font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px;
+  padding: 10px 22px; border-radius: 100px;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-cta:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
 
-.page-header { padding: 140px 0 60px; border-bottom: 1px solid var(--border); }
-.page-header h1 { font-size: clamp(36px,5vw,60px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
-.page-header p { color: var(--muted); font-size: 18px; max-width: 560px; font-weight: 300; }
+/* PAGE HEADER */
+.page-header {
+  padding: 140px 0 72px;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.page-header::before {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(212,240,64,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.section-label {
+  display: inline-block; font-family: 'Sora', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-muted);
+  border: 1px solid rgba(212,240,64,0.25);
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
+}
+.page-header h1 {
+  font-size: clamp(36px, 5vw, 60px); font-weight: 800;
+  letter-spacing: -0.02em; margin-bottom: 16px;
+}
+.page-header p {
+  font-size: 19px; color: var(--muted); max-width: 560px;
+  font-weight: 300; line-height: 1.6;
+}
 
-.section-label { display: inline-block; font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-muted); border: 1px solid rgba(212,240,64,0.25); padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+/* FILTER */
+.filter-bar {
+  padding: 36px 0 0;
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600;
+  padding: 8px 18px; border-radius: 100px; cursor: pointer;
+  border: 1px solid var(--border); background: transparent; color: var(--muted);
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--white); }
+.filter-btn.active {
+  background: var(--accent-muted); border-color: rgba(212,240,64,0.3); color: var(--accent);
+}
+
+/* BLOG GRID */
+.blog-section { padding: 60px 0 100px; }
 
 /* FEATURED */
-.featured-section { padding: 72px 0 0; }
-.featured-post { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 48px; margin-bottom: 20px; transition: border-color 0.3s, box-shadow 0.3s; }
-.featured-post:hover { border-color: rgba(212,240,64,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-.post-meta { font-size: 13px; color: var(--muted); margin-bottom: 14px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-.post-tag { font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-muted); border: 1px solid rgba(212,240,64,0.2); padding: 3px 10px; border-radius: 100px; }
-.featured-post h2 { font-size: clamp(22px,3vw,34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
-.featured-post .excerpt { color: #aaa; font-size: 16px; line-height: 1.75; max-width: 700px; margin-bottom: 8px; }
-.read-more { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; margin-top: 22px; transition: gap 0.2s; cursor: pointer; }
-.read-more:hover { gap: 10px; }
+.featured-article {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; background: var(--card-bg);
+  border: 1px solid var(--border); border-radius: 20px;
+  overflow: hidden; margin-bottom: 40px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.featured-article:hover {
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.featured-visual {
+  background: var(--dark);
+  display: flex; align-items: center; justify-content: center;
+  padding: 48px; min-height: 280px;
+  position: relative; overflow: hidden;
+}
+.featured-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(212,240,64,0.08) 0%, transparent 65%);
+}
+.featured-emoji { font-size: 72px; position: relative; z-index: 1; }
+.featured-content { padding: 40px 44px; display: flex; flex-direction: column; justify-content: center; }
+.article-tag {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+}
+.featured-content h2 {
+  font-size: clamp(22px, 2.5vw, 28px); font-weight: 700;
+  margin-bottom: 14px; letter-spacing: -0.01em; line-height: 1.3;
+}
+.featured-content p { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 28px; }
+.article-meta-row {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.article-meta-info { font-size: 13px; color: #555; }
+.read-more {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600;
+  color: var(--accent); transition: gap 0.2s;
+}
+.read-more:hover { gap: 12px; }
 
-/* ARTICLE BODY (hidden by default, toggled) */
-.article-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding-top 0.3s; }
-.article-body.open { max-height: 2000px; padding-top: 28px; }
-.article-body p { color: #aaa; font-size: 16px; line-height: 1.8; margin-bottom: 18px; }
-.article-body h3 { font-size: 20px; font-weight: 700; margin: 28px 0 12px; color: var(--white); }
-.article-body .divider { height: 1px; background: var(--border); margin: 28px 0; }
+/* ARTIKEL GRID */
+.articles-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+.article-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  display: flex; flex-direction: column;
+}
+.article-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+.card-visual {
+  background: var(--dark); padding: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px; min-height: 140px; position: relative; overflow: hidden;
+}
+.card-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at center, rgba(212,240,64,0.06) 0%, transparent 70%);
+}
+.card-body { padding: 24px 24px 28px; display: flex; flex-direction: column; flex: 1; }
+.card-body .article-tag { margin-bottom: 12px; }
+.card-body h3 {
+  font-size: 18px; font-weight: 700; margin-bottom: 10px;
+  line-height: 1.35; letter-spacing: -0.01em;
+}
+.card-body p { font-size: 14px; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+.card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; color: #555;
+}
 
-/* GRID */
-.posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 20px; padding: 40px 0 72px; }
-.post-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 28px; transition: border-color 0.25s, transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
-.post-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-5px); box-shadow: 0 18px 44px rgba(0,0,0,0.4); }
-.post-card h3 { font-size: 18px; font-weight: 700; line-height: 1.3; margin: 10px 0 10px; letter-spacing: -0.01em; }
-.post-card p { font-size: 14px; color: var(--muted); line-height: 1.65; flex: 1; }
-.post-card .read-more { font-size: 13px; margin-top: 18px; }
+/* EMPTY STATE */
+.empty-state {
+  text-align: center; padding: 80px 24px;
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: 20px; color: var(--muted);
+}
+.empty-state h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: var(--white); }
+.empty-state p { font-size: 15px; margin-bottom: 28px; }
 
-/* CARD ARTICLE BODY */
-.card-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding-top 0.3s; }
-.card-body.open { max-height: 1200px; padding-top: 18px; }
-.card-body p { color: #aaa; font-size: 14px; line-height: 1.75; margin-bottom: 12px; }
-.card-body h4 { font-size: 15px; font-weight: 700; margin: 18px 0 8px; }
+/* CTA STRIP */
+.blog-cta {
+  background: var(--dark);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 64px 0; text-align: center;
+}
+.blog-cta h2 { font-size: clamp(24px,3vw,36px); font-weight: 800; margin-bottom: 14px; letter-spacing: -0.02em; }
+.blog-cta p { color: var(--muted); font-size: 17px; max-width: 480px; margin: 0 auto 32px; font-weight: 300; }
+.btn-primary {
+  display: inline-block; background: var(--accent); color: var(--black);
+  font-family: 'Sora', sans-serif; font-weight: 700; font-size: 16px;
+  padding: 16px 34px; border-radius: 100px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,240,64,0.4); }
 
-/* TOPICS */
-.topics-section { padding: 60px 0 80px; border-top: 1px solid var(--border); }
-.topics-section h2 { font-size: clamp(24px,3vw,34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
-.topics-section > .container > p { color: var(--muted); margin-bottom: 28px; }
-.topics-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-.topic-chip { background: var(--dark); border: 1px solid var(--border); border-radius: 100px; padding: 8px 18px; font-size: 14px; color: #aaa; transition: border-color 0.2s, color 0.2s; }
-.topic-chip:hover { border-color: rgba(212,240,64,0.3); color: var(--white); }
-
-footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
-.footer-logo { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 700; display: block; margin-bottom: 14px; }
+/* FOOTER */
+footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; }
+.footer-logo { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; display: block; margin-bottom: 12px; }
+footer p { font-size: 13px; color: #444; }
 .footer-links { display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; margin-top: 10px; }
 .footer-links a { color: #444; font-size: 13px; padding: 0 10px; transition: color 0.2s; }
 .footer-links a:hover { color: #888; }
 
-@media (max-width: 640px) { .featured-post { padding: 28px 20px; } }
+/* RESPONSIVE */
+@media (max-width: 760px) {
+  .featured-article { grid-template-columns: 1fr; }
+  .featured-visual { min-height: 160px; }
+  .nav-links { display: none; }
+}
+@media (max-width: 500px) {
+  .articles-grid { grid-template-columns: 1fr; }
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 100px; }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="logo" href="index.html">reach<span>fix</span></a>
-    <a class="nav-back" href="index.html">← Zurück zur Startseite</a>
+    <div class="nav-links">
+      <a href="index.html">Startseite</a>
+      <a href="pakete.html">Pakete</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a class="nav-cta" href="index.html#kontakt">Erstgespräch</a>
+    </div>
   </div>
 </nav>
 
 <main>
 
-  <div class="page-header">
+  <!-- PAGE HEADER -->
+  <header class="page-header">
     <div class="container">
-      <h1>Blog</h1>
-      <p>Praxisnahe Tipps zu Social Media Marketing, Instagram und Meta Ads für Unternehmen in Wien und Österreich.</p>
-    </div>
-  </div>
+      <span class="section-label">Wissen &amp; Tipps</span>
+      <h1>Social Media Marketing –<br>unser Blog für Wien.</h1>
+      <p>Praxisnahe Artikel zu Instagram, Facebook und Meta Ads. Für Unternehmer, die verstehen wollen wie Social Media Marketing wirklich funktioniert.</p>
 
-  <div class="featured-section">
-    <div class="container">
-      <span class="section-label">Aktuell</span>
-
-      <!-- FEATURED ARTICLE -->
-      <article class="featured-post">
-        <div class="post-meta">
-          <span class="post-tag">Instagram</span>
-          <span>März 2025</span>
-          <span>8 Min. Lesezeit</span>
-        </div>
-        <h2>Warum regelmäßige Posts auf Instagram mehr bringen als ein viraler Beitrag</h2>
-        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viele Unternehmen in Wien setzen alles auf einen großen Post – doch die Realität zeigt: Konsistenz schlägt Viralität. Wer dreimal pro Woche relevante Inhalte veröffentlicht, baut langfristig mehr Vertrauen auf.</p>
-        <span class="read-more" onclick="toggleArticle(this)">Weiterlesen →</span>
-        <div class="article-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <h3>Konsistenz als Wettbewerbsvorteil</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
-          <h3>Was der Algorithmus wirklich belohnt</h3>
-          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident. Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-          <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-          <div class="divider"></div>
-          <p style="font-size:14px;color:#555;font-style:italic;">Dieser Artikel wurde von der ReachFix Redaktion verfasst. ReachFix ist Ihre Social Media Agentur in Wien.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-
-  <!-- GRID -->
-  <div class="container">
-    <div class="posts-grid">
-
-      <article class="post-card">
-        <div class="post-meta"><span class="post-tag">Meta Ads</span><span>Feb 2025</span></div>
-        <h3>Meta Ads für kleine Unternehmen in Wien: So funktioniert bezahlte Werbung auf Instagram</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Meta Ads sind kein Privileg von Großkonzernen – schon mit kleinem Budget lassen sich in Wien gezielt neue Kunden erreichen.</p>
-        <span class="read-more" onclick="toggleCard(this)">Weiterlesen →</span>
-        <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-          <h4>Zielgruppen richtig definieren</h4>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="post-meta"><span class="post-tag">Strategie</span><span>Feb 2025</span></div>
-        <h3>Instagram oder Facebook – welche Plattform lohnt sich für Ihr Unternehmen in Wien?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Die Antwort hängt von Ihrer Zielgruppe ab. Wir erklären, welche Plattform für welche Branchen in Wien besonders gut funktioniert.</p>
-        <span class="read-more" onclick="toggleCard(this)">Weiterlesen →</span>
-        <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-          <h4>Instagram für jüngere Zielgruppen</h4>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
-          <h4>Facebook für etablierte Branchen</h4>
-          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="post-meta"><span class="post-tag">Content</span><span>Jan 2025</span></div>
-        <h3>Content ohne Kamera: Professionelle Instagram-Posts ohne eigenes Bildmaterial</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Du glaubst, du brauchst ein Fotoshooting bevor du starten kannst? Das ist einer der häufigsten Irrtümer im Social Media Marketing.</p>
-        <span class="read-more" onclick="toggleCard(this)">Weiterlesen →</span>
-        <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-          <h4>Grafiken als Alternative</h4>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="post-meta"><span class="post-tag">Praxis</span><span>Jan 2025</span></div>
-        <h3>Social Media Strategie für Wiener KMUs: Was wirklich Anfragen bringt</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viele Unternehmen in Wien investieren Zeit in Social Media ohne klare Strategie. Wir zeigen, welche Ansätze wirklich funktionieren.</p>
-        <span class="read-more" onclick="toggleCard(this)">Weiterlesen →</span>
-        <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="post-meta"><span class="post-tag">Instagram</span><span>Dez 2024</span></div>
-        <h3>Instagram Reels 2025: Warum Kurzvideos für Unternehmen in Österreich unverzichtbar sind</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Reels haben Instagram verändert. Der Algorithmus belohnt Videoformate mit enormer Reichweite – auch für kleine Accounts.</p>
-        <span class="read-more" onclick="toggleCard(this)">Weiterlesen →</span>
-        <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <div class="post-meta"><span class="post-tag">Tipps</span><span>Dez 2024</span></div>
-        <h3>Social Media Agentur beauftragen: Was du vorher wissen solltest</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Worauf solltest du achten, wenn du eine Social Media Agentur in Wien beauftragen möchtest? Die wichtigsten Fragen im Überblick.</p>
-        <span class="read-more" onclick="toggleCard(this)">Weiterlesen →</span>
-        <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-          <h4>Die richtigen Fragen stellen</h4>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- TOPICS -->
-  <div class="topics-section">
-    <div class="container">
-      <h2>Themen im Blog</h2>
-      <p>Alle Beiträge rund um Social Media Marketing in Wien und Österreich</p>
-      <div class="topics-grid">
-        <span class="topic-chip">Instagram Marketing Wien</span>
-        <span class="topic-chip">Meta Ads Österreich</span>
-        <span class="topic-chip">Social Media Strategie</span>
-        <span class="topic-chip">Content Produktion</span>
-        <span class="topic-chip">Instagram Reels</span>
-        <span class="topic-chip">Facebook Marketing</span>
-        <span class="topic-chip">Social Media Betreuung</span>
-        <span class="topic-chip">Online Marketing Wien</span>
-        <span class="topic-chip">KMU &amp; Social Media</span>
-        <span class="topic-chip">Zielgruppen-Targeting</span>
+      <!-- FILTER BUTTONS -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterPosts('alle')">Alle Artikel</button>
+        <button class="filter-btn" onclick="filterPosts('instagram')">Instagram</button>
+        <button class="filter-btn" onclick="filterPosts('facebook')">Facebook</button>
+        <button class="filter-btn" onclick="filterPosts('meta-ads')">Meta Ads</button>
+        <button class="filter-btn" onclick="filterPosts('strategie')">Strategie</button>
+        <button class="filter-btn" onclick="filterPosts('content')">Content</button>
+        <button class="filter-btn" onclick="filterPosts('praxis')">Praxis</button>
       </div>
     </div>
-  </div>
+  </header>
+
+  <!-- BLOG ARTIKEL -->
+  <section class="blog-section">
+    <div class="container">
+
+      <!-- ═══════════════════════════════════════════════
+           FEATURED ARTIKEL (immer der neueste/wichtigste)
+           Wenn kein Artikel vorhanden: diesen Block löschen
+           und nur den empty-state stehenlassen
+      ═══════════════════════════════════════════════ -->
+      <a class="featured-article" href="#" data-category="instagram">
+        <div class="featured-visual">
+          <span class="featured-emoji">📱</span>
+        </div>
+        <div class="featured-content">
+          <span class="article-tag">Instagram Marketing</span>
+          <h2>TITEL DES FEATURED ARTIKELS – Haupt-Keyword vorne</h2>
+          <p>Kurze Beschreibung des Artikels in 1–2 Sätzen. Was lernt der Leser? Warum ist das relevant für Unternehmen in Wien?</p>
+          <div class="article-meta-row">
+            <span class="article-meta-info">📅 DATUM &nbsp;·&nbsp; ⏱ X Min. Lesezeit</span>
+            <span class="read-more">Artikel lesen →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ═══════════════════════════════════════════════
+           ARTIKEL GRID
+           Für jeden neuen Artikel eine .article-card kopieren
+           data-category muss mit Filter-Button übereinstimmen:
+           "instagram" | "facebook" | "meta-ads" | "strategie" | "content" | "praxis"
+      ═══════════════════════════════════════════════ -->
+      <div class="articles-grid" id="articles-grid">
+
+        <!-- ARTIKEL KARTE – Vorlage zum Kopieren -->
+        <a class="article-card" href="#" data-category="meta-ads">
+          <div class="card-visual">📊</div>
+          <div class="card-body">
+            <span class="article-tag">Meta Ads</span>
+            <h3>ARTIKEL TITEL</h3>
+            <p>Kurze Beschreibung des Artikels – 1–2 Sätze, die neugierig machen.</p>
+            <div class="card-footer">
+              <span>📅 DATUM &nbsp;·&nbsp; ⏱ X Min.</span>
+              <span style="color:var(--accent);font-size:13px;font-weight:600;">Lesen →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- WEITERE ARTIKEL KARTEN HIER EINFÜGEN -->
+
+        <!-- EMPTY STATE – löschen sobald Artikel vorhanden -->
+        <div class="empty-state" style="grid-column: 1 / -1;">
+          <h3>Bald verfügbar.</h3>
+          <p>Hier erscheinen in Kürze Artikel zu Instagram Marketing, Meta Ads und Social Media Strategie für Unternehmen in Wien.</p>
+          <a class="btn-primary" href="index.html#kontakt">Jetzt Erstgespräch buchen</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="blog-cta">
+    <div class="container">
+      <h2>Lieber alles outsourcen?</h2>
+      <p>Wir übernehmen deine komplette Social Media Betreuung in Wien – zum Fixpreis.</p>
+      <a class="btn-primary" href="pakete.html">Alle Pakete ansehen</a>
+    </div>
+  </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <a class="footer-logo" href="index.html">reach<span style="color:var(--accent);">fix</span></a>
-    <p style="font-size:13px;color:#444;">Social Media Agentur Wien &nbsp;·&nbsp; <a href="mailto:hallo@reachfix.agency" style="color:#444;">hallo@reachfix.agency</a></p>
+    <p><strong>ReachFix</strong> – Social Media Agentur Wien</p>
+    <p style="margin-top:4px;color:#555;font-size:13px;">
+      Wien, Österreich &nbsp;·&nbsp;
+      <a href="mailto:hallo@reachfix.agency" style="color:#555;">hallo@reachfix.agency</a>
+    </p>
     <div class="footer-links">
       <a href="pakete.html">Pakete</a>
       <a href="blog.html">Blog</a>
@@ -250,15 +386,25 @@ footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: cente
 </footer>
 
 <script>
-function toggleArticle(el) {
-  const body = el.nextElementSibling;
-  const isOpen = body.classList.toggle('open');
-  el.textContent = isOpen ? 'Weniger anzeigen ↑' : 'Weiterlesen →';
-}
-function toggleCard(el) {
-  const body = el.nextElementSibling;
-  const isOpen = body.classList.toggle('open');
-  el.textContent = isOpen ? 'Weniger anzeigen ↑' : 'Weiterlesen →';
+/* CATEGORY FILTER */
+function filterPosts(category) {
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  const featured = document.querySelector('.featured-article');
+  const cards = document.querySelectorAll('.article-card');
+
+  if (category === 'alle') {
+    if (featured) featured.style.display = 'grid';
+    cards.forEach(c => c.style.display = 'flex');
+  } else {
+    if (featured) {
+      featured.style.display = featured.dataset.category === category ? 'grid' : 'none';
+    }
+    cards.forEach(c => {
+      c.style.display = c.dataset.category === category ? 'flex' : 'none';
+    });
+  }
 }
 </script>
 
